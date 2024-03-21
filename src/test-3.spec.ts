@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://test.engagingnetworks.app/p2p/site/wzS91/unite_for_animals_p2p_iats#/');
+  await page.getByRole('link', { name: 'Registration' }).click();
+  await page.getByText('Dress Up Your Pet DayDress up').click();
+  await page.getByRole('button', { name: 'Next Step: Enter your' }).click();
+  await page.getByLabel('First Name').click();
+  await page.getByLabel('First Name').fill('test');
+  await page.getByLabel('Last Name').click();
+  await page.getByLabel('Last Name').fill('new');
+  await page.getByLabel('Email Address').click();
+  await page.getByLabel('Email Address').fill('new@gmail.com');
+  await page.getByLabel('Address 1').click();
+  await page.getByLabel('Address 1').click();
+  await page.getByLabel('Address 1').fill('1street');
+  await page.getByLabel('City').click();
+  await page.getByLabel('City').fill('vienna');
+  await page.getByLabel('Region').click();
+  await page.getByLabel('Region').fill('va');
+  await page.locator('div').filter({ hasText: /^Postcode$/ }).locator('div').click();
+  await page.getByLabel('Postcode').fill('22102');
+  await page.getByLabel('Country').click();
+  await page.getByLabel('Country').fill('USA');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByText('Fundraise on your own and').click();
+  await page.getByRole('button', { name: 'Next Step: Set your goal' }).click();
+  await page.getByRole('button', { name: 'No donation at this time' }).click();
+  await page.getByRole('button', { name: 'Next Step' }).click();
+  await page.getByRole('button', { name: 'No donation at this time' }).click();
+  await page.getByRole('button', { name: 'Next Step' }).click();
+});
